@@ -23,9 +23,21 @@ def read_data(file_name):
     return data
 
 
+def selection_sort(numbers: list):
+    for i in range(len(numbers)):
+        smallest_idx = i
+        for x in range(i + 1, len(numbers)):
+            if numbers[x] < numbers[i]:
+                smallest_idx = x
+                numbers[i], numbers[smallest_idx] = numbers[smallest_idx], numbers[i]
+    return numbers
+
+
 def main():
     my_data = read_data("numbers.csv")
-    print(my_data["series_1"])
+    test = my_data["series_1"]
+    print(test)
+    print(selection_sort(test.copy()))
 
 
 if __name__ == '__main__':
