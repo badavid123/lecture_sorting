@@ -33,11 +33,21 @@ def selection_sort(numbers: list):
     return numbers
 
 
+def bubble_sort(numbers: list):
+    n = len(numbers)
+    for i in range(n):
+        for x in range(0, n-i-1):
+            if numbers[x] > numbers[x + 1]:
+                numbers[x], numbers[x + 1] = numbers[x + 1], numbers[x]
+    return numbers
+
+
 def main():
     my_data = read_data("numbers.csv")
     test = my_data["series_1"]
     print(test)
     print(selection_sort(test.copy()))
+    print(bubble_sort(test.copy()))
 
 
 if __name__ == '__main__':
